@@ -20,7 +20,7 @@ export const useMount = (callback: () => void) => {
     }, [])
 }
 
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = <V>(value: V, delay?: number) => {
     const [debouncedValue, setDebouncedValue] = useState(value)
 
     useEffect(() => {
@@ -28,7 +28,24 @@ export const useDebounce = (value: any, delay?: number) => {
         const timeout = setTimeout(() => setDebouncedValue(value), delay)
         // 每次在上一个useEffect处理完以后再运行
         return () => clearTimeout(timeout)
-    }, [value. delay])
+    }, [value, delay])
 
     return debouncedValue
 }
+
+export const useArray = <T>(initialArray: T[]) => {
+    let [value, setValue] = useState(initialArray)
+    return {
+        value,
+        setValue,
+        add: (item: T) => setValue([...value, item]),
+        clear: () => setValue([]),
+        removeIndex: (index: number) => {
+            const copy = [...value]
+            copy.splice(index, 1)
+            setValue(copy)
+        }
+    }
+
+}
+
