@@ -5,19 +5,9 @@ export const LoginScreen = () => {
     username: string;
     password: string;
   }
-  const apiUrl = process.env.REACT_APP_API_URL;
+
   const login = (param: Param) => {
-    fetch(`${apiUrl}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(param),
-    }).then(async (response) => {
-      if (response.ok) {
-        // setList(await response.json());
-      }
-    });
+    
   };
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,7 +28,7 @@ export const LoginScreen = () => {
         <label htmlFor="密码"></label>
         <input type="password" id={"password"} />
       </div>
-      <button>登录</button>
+      <button>注册</button>
     </form>
   );
 };
