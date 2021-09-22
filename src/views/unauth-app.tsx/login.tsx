@@ -29,7 +29,7 @@ export const LoginScreen = () => {
         <label htmlFor="密码"></label>
         <input type="password" id={"password"} />
       </div>
-      <button>注册</button>
+      <button>登录</button>
     </form>
   );
 };

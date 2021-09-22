@@ -1,8 +1,8 @@
 import React, { FormEvent } from "react";
 import { useAuth } from "../../context/auth-context";
 
-export const LoginScreen = () => {
-  const { login, user } = useAuth();
+export const RegisterScreen = () => {
+  const { register, user } = useAuth();
   interface Param {
     username: string;
     password: string;
@@ -16,7 +16,7 @@ export const LoginScreen = () => {
       .value;
     const password = (event.currentTarget.elements[1] as HTMLInputElement)
       .value;
-    login({ username, password });
+    register({ username, password });
   };
   return (
     <form onSubmit={handleSubmit}>
