@@ -16,7 +16,7 @@ export const ProjectListScreen = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const client = useHttp();
   useEffect(() => {
-    client("projects", { data: cleanObject(debouncedParam) }).then(setList)
+    client("/projects", { data: cleanObject(debouncedParam) }).then(setList)
   }, [debouncedParam]);
 
   useMount(() => {

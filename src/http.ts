@@ -29,7 +29,7 @@ export const http = async (
   } else {
     config.body = JSON.stringify(data || {});
   }
-
+  console.log(`url:${url}`);
   return window.fetch(apiUrl + url, config).then(async (response) => {
     const data = await response.json();
     if (response.status === 401) {
